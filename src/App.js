@@ -1,24 +1,50 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Navbar from './components/Navbar';
+import AnimeCardList from './components/AnimeCardList';
+import CreationForm from './components/AnimeCreationForm';
+import { animes } from './testdata/animes.json';
+
 
 function App() {
+  const [ animeCollection, setAnimeCollection] = useState(animes);
+
+  function createAnime(newAnime) {
+    setAnimeCollection([ ...animeCollection, newAnime]);
+  }
+
+  function deleteAnime(animeId) {
+    const proceed = window.confirm("Está seguro de eliminar este anime?");
+
+    if (proceed) {
+      const updatedAnimes = animeCollection.filter( (anime, index) => {
+        return animeId !== index;
+      });
+
+      setAnimeCollection(updatedAnimes);
+    }
+    
+    
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar listaAnimes = {animeCollection} />
+      { /* Contenido Pagina */ }
+      <h1 className="text-center mt-5">Lista de Animes</h1>
+      
+      <div className="row">
+        <div className="container col-md-3 mt-5">
+          <CreationForm createAnime={ createAnime } />
+        </div>
+        <div className="container col-md-8">
+          <div className="row">
+              <AnimeCardList 
+                animeCollection={ animeCollection }
+                deleteAnime={ deleteAnime } />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
