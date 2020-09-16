@@ -1,3 +1,9 @@
+# Description
+
+Basic App about Adding/Removing animes to a list of animes. An exercise to practice components, component comunication and functional vs class based components.
+
+# React's Info:
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
