@@ -19,7 +19,10 @@ function AnimeCard(props) {
             </div>
             {/* Card Footer */}
             <div className="card-footer">
-                <button className="btn btn-danger btn-block">Eliminar</button>
+                <button 
+                    className="btn btn-danger btn-block"
+                    onClick={ () => props.deleteAnime( props.index ) }
+                >Eliminar</button>
             </div>
         </div>
     )
