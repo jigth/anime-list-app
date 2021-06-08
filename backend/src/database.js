@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/animes-db', {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 });
 
 mongoose.connection.on('connected', () => {

@@ -1,28 +1,64 @@
 const express = require('express');
 const router = express.Router();
+const Animes = require('../models/anime');
+
 
 router.get('/', (req, res) => {
     res.send({"message": "Welcome to the AnimeListApp API"});
 });
 
-router.get('/animes', (req, res) => {
-    res.send({"message": "List of animes goes here!!"});
+router.get('/animes', async (req, res) => {
+    const animes = await Animes.find();
+    res.send(animes);
 });
 
-router.get('/anime/:id', (req, res) => {
+router.get('/anime/:id', async (req, res) => {
     const { id } = req.params;
-    res.send({"message": `Anime with id ${id}`});
+    const anime = await Animes.findOne({ '_id': id });
+    res.send(anime);
 });
 
-router.post('/anime', (req, res) => {
-    const { att1, att2, att3, att4 } = req.body;
+router.post('/anime/create', async (req, res) => {
+    const { title, status, image_url, trailer_url } = req.body;
     
     try {
-        // Add anime to database
+        const newAnime = await Animes.create({
+            title,
+            status,
+            image_url,
+            trailer_url
+        });
+        res.json(newAnime);
     } catch (error) {
         console.error(error);
+        res.json({ "message": "Error creating the anime, check that the title doesn't exist because it has to be unique" });
     }
 
+});
+
+router.delete('/anime/delete/:id', async (req, res) => {
+    const { id } = req.params;
+
+    try {
+        //const anime = await Animes.findOne({ '_id': id });
+        const deletedAnime = await Animes.findOneAndDelete({ '_id': id });
+        res.json(deletedAnime);
+    } catch(error) {
+        console.error(error);
+        res.json({ 'message': 'Error deleting the anime, please check that the id is correct' });
+    }
+});
+
+router.delete('/anime/delete/title/:title', async (req, res) => {
+    const { title } = req.params;
+
+    try {
+        const deletedAnime = await Animes.findOneAndDelete({ title });
+        res.json(deletedAnime);
+    } catch(error) {
+        console.error(error);
+        res.json({ 'message': 'Error deleting the anime, please check that the title is correct' });
+    }
 });
 
 module.exports = router;
