@@ -9,11 +9,11 @@ function AnimeCard(props) {
             </div>
             {/* Card Body */}
             <div className="card-body">
-                <p><strong>Titulo (en ingles):</strong> {props.anime.title}</p>
-                <p><strong>Estado:</strong> {props.anime.status}</p>
+                <p><strong>Title:</strong> {props.anime.title}</p>
+                <p><strong>Status:</strong> {props.anime.status}</p>
                 <div className="text-center">
                     <a href={props.anime.trailer_url}>
-                        <img className="anime-presentation" src={props.anime.image_url} alt={ `Imagen del anime ${props.anime.title}`} width="90%" />
+                        <img className="anime-presentation" src={props.anime.image_url} alt={ `Anime: ${props.anime.title}`} width="90%" />
                     </a>
                 </div>
             </div>
@@ -22,7 +22,7 @@ function AnimeCard(props) {
                 <button 
                     className="btn btn-danger btn-block"
                     onClick={ () => props.deleteAnime( props.index ) }
-                >Eliminar</button>
+                > Delete </button>
             </div>
         </div>
     )

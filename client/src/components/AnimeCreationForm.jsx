@@ -14,7 +14,7 @@ class Search extends Component {
     handleChange = (event) => {
         const { name, value } = event.target;
         this.setState({ [name]: value })
-        console.log("Cambio!")
+        console.log(`Attribute ${name} has changed its value to: ${value}`)
     }
 
     handleSubmit = (e) => {
@@ -34,14 +34,14 @@ class Search extends Component {
         return (
             <div className="card">
                 <div className="card-header">
-                    <h3 className="text-success text-center">Adicionar Anime</h3>
+                    <h3 className="text-primary text-center">Add New Anime</h3>
                 </div>
                 <div className="card-body">
                         <form method="post" onSubmit={ this.handleSubmit }>
-                            {/* Titulo del Anime */}
+                            {/* Anime Title */}
                             <div className="form-group">
                                 <label htmlFor="url">
-                                    Titulo:
+                                    Title:
                                 </label>
                                 <input 
                                     id="title"
@@ -54,10 +54,10 @@ class Search extends Component {
                                 />
                             </div>
 
-                            {/* Estado actual del anime */}
+                            {/* Anime Status */}
                             <div className="form-group">
                                 <label htmlFor="status-select">
-                                    Estado Actual:
+                                    Status:
                                 </label>
                                 <select 
                                         id="status-select" 
@@ -67,15 +67,15 @@ class Search extends Component {
                                         onChange={this.handleChange}
                                     >
                                     <option>Finished Airing</option>
-                                    <option>In Broadcast</option>
+                                    <option>Currently Airing</option>
                                 </select>
                                 
                             </div>
 
-                            {/* URL de la imagen*/}
+                            {/* Image URL */}
                             <div className="form-group">
                                 <label htmlFor="url">
-                                    Url de la imagen:
+                                    Image URL:
                                 </label>
                                 <input 
                                     id="image_url"
@@ -84,14 +84,14 @@ class Search extends Component {
                                     name="image_url"
                                     value={this.state.image_url}
                                     onChange={this.handleChange}
-                                    placeholder="Ej: https://website.com/myimage.png"
+                                    placeholder="https://imgur.com/gallery/2xfG6"
                                 />
                             </div>
 
                             {/* Trailer URL */}
                             <div className="form-group">
                                 <label htmlFor="url">
-                                    Url del trailer:
+                                    Trailer URL:
                                 </label>
                                 <input 
                                     id="trailer_url"
@@ -100,7 +100,7 @@ class Search extends Component {
                                     name="trailer_url"
                                     value={this.state.trailer_url}
                                     onChange={this.handleChange}
-                                    placeholder="Ej: https://www.youtube.com/watch?v=FD08hv-7QQo"
+                                    placeholder="https://www.youtube.com/watch?v=FD08hv-7QQo"
                                 />
                             </div>
 
