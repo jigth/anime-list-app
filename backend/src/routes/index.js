@@ -40,7 +40,6 @@ router.delete('/anime/delete/:id', async (req, res) => {
     const { id } = req.params;
 
     try {
-        //const anime = await Animes.findOne({ '_id': id });
         const deletedAnime = await Animes.findOneAndDelete({ '_id': id });
         res.json(deletedAnime);
     } catch(error) {

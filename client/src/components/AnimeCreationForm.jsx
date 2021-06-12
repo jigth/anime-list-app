@@ -20,14 +20,12 @@ class Search extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.createAnime(this.state);
-        console.log("Iniciando");
         this.setState({
             trailer_url: "",
             title: "",
             status: "Finished Airing",
             image_url: ""
         });
-        console.log("OK")
     }
 
     render() {
@@ -107,7 +105,7 @@ class Search extends Component {
                             <input 
                                 type="submit"
                                 name="submit"
-                                value="Crear"
+                                value="Create"
                                 className="btn btn-primary btn-block" 
                             />
                         </form>

@@ -9,7 +9,7 @@ function AnimeCardList(props) {
                 <AnimeCard 
                     anime={ anime }
                     deleteAnime={ props.deleteAnime }
-                    index={ index }
+                    index={ anime._id }
                 />
             </div>
         );

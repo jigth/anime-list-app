@@ -1,6 +1,8 @@
 const express = require('express');
 const app = require('./app');
-const PORT = process.env.PORT || 4450;
+
+require('dotenv').config();
+
 
 async function startServer() {
     await app.listen(PORT);
