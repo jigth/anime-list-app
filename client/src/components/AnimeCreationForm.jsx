@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
-class Search extends Component {
+class CreationForm extends Component {
     constructor() {
         super();
         this.state = {
@@ -14,18 +15,37 @@ class Search extends Component {
     handleChange = (event) => {
         const { name, value } = event.target;
         this.setState({ [name]: value })
-        console.log(`Attribute ${name} has changed its value to: ${value}`)
+    }
+    
+    addAnime = async (anime) => {
+        const animeEndpoint = process.env.REACT_APP_API_URL + '/anime/create';
+        try {
+            await axios.post(animeEndpoint, this.state);
+            await this.reloadAnimes();
+        } catch (error) {
+            console.log(error);
+        }
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault();
-        this.props.createAnime(this.state);
+    reloadAnimes = async () => {
+        const animeEndpoint = process.env.REACT_APP_API_URL + '/animes';
+        const { data: animes } = await axios.get(animeEndpoint);
+        this.props.updateAnimeCollection(animes);
+    }
+
+    clearState = () => {
         this.setState({
             trailer_url: "",
             title: "",
             status: "Finished Airing",
             image_url: ""
         });
+    }
+
+    handleSubmit = async (e) => {
+        e.preventDefault();
+        await this.addAnime(this.state);
+        this.clearState();
     }
 
     render() {
@@ -115,4 +135,4 @@ class Search extends Component {
     }
 }
 
-export default Search;
+export default CreationForm;

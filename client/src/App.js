@@ -26,11 +26,13 @@ class App extends Component {
 
     async initAnimeCollection() {
         const animesEndpoint = process.env.REACT_APP_API_URL + '/animes';
-    
         const { data } = await axios.get(animesEndpoint);
-        this.setState({ animeCollection: data });
+        this.updateAnimeCollection(data);
     }
     
+    updateAnimeCollection = (newCollection) => {
+        this.setState({ animeCollection: newCollection });
+    }
 
     deleteAnime = async (animeId) => {
         const deleteEndpoint = `${process.env.REACT_APP_API_URL}/anime/delete/${animeId}`;
@@ -43,15 +45,14 @@ class App extends Component {
             });
 
             await axios.delete(deleteEndpoint);
-
-            this.setState({ animeCollection: updatedAnimes });
+            this.updateAnimeCollection(updatedAnimes);
         }
     }
 
     render() {
         return (
             <div className="App">
-              <Navbar animeList={this.state.animeCollection} />
+              <Navbar animeList={ this.state.animeCollection } />
 
               <h1 
                   className="text-center mt-5 font-weight-bold" 
@@ -62,7 +63,7 @@ class App extends Component {
 
               <div className="row">
                 <div className="container col-md-3 mt-5">
-                  <CreationForm createAnime={ this.createAnime } />
+                    <CreationForm updateAnimeCollection={ this.updateAnimeCollection } />
                 </div>
                 <div className="container col-md-8">
                   <div className="row">
