@@ -20,10 +20,10 @@ class CreationForm extends Component {
     addAnime = async (anime) => {
         const animeEndpoint = process.env.REACT_APP_API_URL + '/anime/create';
         try {
-            await axios.post(animeEndpoint, this.state);
+            await axios.post(animeEndpoint, anime);
             await this.reloadAnimes();
         } catch (error) {
-            console.log(error);
+            console.error(error);
         }
     }
 

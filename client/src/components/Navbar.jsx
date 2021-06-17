@@ -1,12 +1,21 @@
 import React from 'react';
 import Searchbar from './Searchbar';
+import logo from '../assets/images/ryu.png';
 
 function Navbar(props) {
     return (
         <div>
             <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
                 <div className="container">
-                    <a href="/" className="navbar-brand">Jigth's Anime List App</a>
+                    <a href="/" className="navbar-brand">
+                        <img 
+                            src={ logo }
+                            className="mr-2"
+                            width="40px"
+                            alt="ryu.png"
+                        />
+                        Jigth's Anime List App
+                    </a>
                     <div className="navbar">
                         <Searchbar 
                             className="nav-item" 

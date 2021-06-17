@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // Styles
-import './App.css';
+import './assets/styles/App.css';
 
 // Components
 import Navbar from './components/Navbar';
