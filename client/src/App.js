@@ -52,7 +52,10 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-              <Navbar animeList={ this.state.animeCollection } />
+              <Navbar 
+                animeList={ this.state.animeCollection } 
+                updateAnimeCollection={ this.updateAnimeCollection } 
+              />
 
               <h1 
                   className="text-center mt-5 font-weight-bold" 
