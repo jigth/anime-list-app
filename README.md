@@ -2,20 +2,35 @@
 
 This is an application where I practiced some concepts of React (components and functions) by doing a CRUD app with the theme of animes. 
 
-The aplication has a Backend made in **NodeJS+Express+MongoDB** and a Frontend made in **React**. 
+The aplication has been done using the **MERN Stack**. It has a _Backend_ made in **NodeJS+Express+MongoDB** and a _Frontend_ (client) made in **React**. 
 
 It uses Environment variables to handle certain variables used by the system. Some are optionals (have default values), such as the PORTs of the aplication. Others are required, such as "REACT\_APP\_API\_URL" variable.
 
 
 ## Features
 
-* Create animes (You can create other things such as movies or books if you provide the data).
+### Create animes 
 
-* Delete animes
+You can create other things such as movies or books if you provide the data.
 
-* Search animes (and see them updating in **real time** as you change your 'search query', A.K.A "The text that you search in the searchbar").
+![Add Anime](./gifs/addAnime.gif)
 
-* Show the current ammount of displayed animes (look at the right corner of the header/navbar)
+### Search animes 
+
+Search any anime(s) and see them updating in **real time** as you change your 'search query', A.K.A "The text that you search in the searchbar".
+
+![Search Anime](./gifs/searchAnime.gif)
+
+### Delete animes
+
+Delete animes with confirmation
+
+![Delete Anime](./gifs/deleteAnime.gif)
+
+
+### Show the current ammount of displayed animes 
+
+Look at the right corner of the header/navbar, it changes the same as the number of animes showing up in the screen.
 
 
 ## Installation
@@ -28,12 +43,13 @@ Note that the symbol '$' will be used to denote the command prompt of your termi
 
 1. Install the dependencies
 
-> $ cd client
-> $ npm i
+$ cd client
+
+$ npm i
 
 2. Set the environment variables by copying .env\_sample file to a file called .env, and then editing it with the correct values
 
-> $ cp .env\_sample .env
+$ cp .env\_sample .env
 
 Then set the value of the variable "REACT\_APP\_API\_URL" to the URL of the server, for example:
 
@@ -41,7 +57,7 @@ REACT\_APP\_API\_URL=http://localhost:4550
 
 3. Run the app.
 
-> $ npm start
+$ npm start
 
 4. Have fun!
 
@@ -49,12 +65,13 @@ REACT\_APP\_API\_URL=http://localhost:4550
 
 1. Install the dependencies
 
-> $ cd client
-> $ npm i
+$ cd client
+
+$ npm i
 
 2. Set the environment variables by copying .env\_sample file to a file called .env, and then editing it with the correct values
 
-> $ cp .env\_sample .env
+$ cp .env\_sample .env
 
 Do the same thing as before, set the environment variables correctly in the ".env" file, for example:
 
@@ -63,7 +80,7 @@ DATABASE\_URI=mongodb://localhost/animes-db
 
 3. Run the app.
 
-> $ npm start
+$ npm start
 
 4. Have fun!
 
