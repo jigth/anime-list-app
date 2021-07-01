@@ -18,6 +18,55 @@ It uses Environment variables to handle certain variables used by the system. So
 * Show the current ammount of displayed animes (look at the right corner of the header/navbar)
 
 
+## Installation
+
+You must run two servers to use this app (one for the backend, one for the frontend/client), and you also need access to a MongoDB server.
+
+Note that the symbol '$' will be used to denote the command prompt of your terminal emulator.
+
+### Frontend/Client
+
+1. Install the dependencies
+
+> $ cd client
+> $ npm i
+
+2. Set the environment variables by copying .env\_sample file to a file called .env, and then editing it with the correct values
+
+> $ cp .env\_sample .env
+
+Then set the value of the variable "REACT\_APP\_API\_URL" to the URL of the server, for example:
+
+REACT\_APP\_API\_URL=http://localhost:4550
+
+3. Run the app.
+
+> $ npm start
+
+4. Have fun!
+
+### Backend
+
+1. Install the dependencies
+
+> $ cd client
+> $ npm i
+
+2. Set the environment variables by copying .env\_sample file to a file called .env, and then editing it with the correct values
+
+> $ cp .env\_sample .env
+
+Do the same thing as before, set the environment variables correctly in the ".env" file, for example:
+
+PORT=4450
+DATABASE\_URI=mongodb://localhost/animes-db
+
+3. Run the app.
+
+> $ npm start
+
+4. Have fun!
+
 ## What you could do with it.
 
 * Use it to organize your own list of animes _If you know how to run it_ (or whatever you want: Books, Series, Cook Ingredients?)
